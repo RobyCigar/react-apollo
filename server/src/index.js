@@ -1,4 +1,4 @@
-const {ApolloServer, PubSub} = require('apollo-server');
+const {ApolloServer} = require('apollo-server');
 const {PrismaClient} = require('@prisma/client');
 const Query = require('./resolvers/Query');
 const Mutation = require('./resolvers/Mutation');
@@ -10,7 +10,6 @@ const fs = require('fs');
 const path = require('path');
 const {getUserId} = require('./utils');
 
-const pubsub = new PubSub();
 
 const prisma = new PrismaClient({
   errorFormat: 'minimal'
@@ -35,7 +34,6 @@ const server = new ApolloServer({
     return {
       ...req,
       prisma,
-      pubsub,
       userId:
         req && req.headers.authorization
           ? getUserId(req)

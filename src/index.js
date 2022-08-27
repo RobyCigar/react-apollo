@@ -63,6 +63,9 @@ const client = new ApolloClient({
   })
 });
 
+console.log("link: ", link)
+console.log("client: ", client)
+
 ReactDOM.render(
   <BrowserRouter>
     <ApolloProvider client={client}>

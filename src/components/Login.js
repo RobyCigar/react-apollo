@@ -63,6 +63,9 @@ const Login = () => {
     }
   });
 
+  console.log("login: ", login)
+  console.log("signup: ", signup)
+
   return (
     <div>
       <h4 className="mv3">
